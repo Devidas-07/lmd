@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <AdminLayout>
       <Head>
-        <title>Admin Dashboard | Your Project Name</title>
+        <title>Admin Dashboard - Last Minute Delivery</title>
       </Head>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <DashboardCard title="Total Orders" value="156" icon="🛍️" />
@@ -19,15 +19,21 @@ const Dashboard = () => {
   );
 };
 
-const DashboardCard = ({ title, value, icon }) => {
+interface DashboardCardProps {
+  title: string;
+  value: string | number;
+  icon: string;
+}
+
+const DashboardCard = ({ title, value, icon }: DashboardCardProps) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6">
+    <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-gray-500 text-sm">{title}</h3>
-          <p className="text-2xl font-bold mt-1">{value}</p>
+          <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider">{title}</h3>
+          <p className="text-3xl font-semibold text-gray-900 mt-1">{value}</p>
         </div>
-        <span className="text-3xl">{icon}</span>
+        <span className="text-4xl text-indigo-500">{icon}</span>
       </div>
     </div>
   );
